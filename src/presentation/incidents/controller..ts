@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { IncidentModel } from '../../data/models/incident.model';
+import { EmailServide } from '../../domain/service/email.service';
 
 export class IncidentController {
 
@@ -22,6 +23,13 @@ export class IncidentController {
             lng
         });
 
+        const emailService = new EmailServide();
+            await emailService.sendEmail({
+                to: 'crizcamach2003@gmail.com',
+                subject: title,
+                htmlBody: `<h1>${description}</h1>`        
+            })
+        
         return res.json(newIncident)
     }
 
