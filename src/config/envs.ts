@@ -7,5 +7,6 @@ export const envs = {
     MONGO_DB: env.get('MONGO_DB').required().asString(),
     MAILER_SERVICE: env.get('MAILER_SERVICE').required().asString(),
     MAILER_EMAIL: env.get('MAILER_EMAIL').required().asString(),
-    MAILER_ACCESS_TOKEN: env.get('MAILER_ACCESS_TOKEN').required().asString()
+    MAILER_ACCESS_TOKEN: env.get('MAILER_ACCESS_TOKEN').required().asString(),
+    MAPBOX_ACCESS_TOKEN: env.get('MAPBOX_ACCESS_TOKEN').required().asString()
 };

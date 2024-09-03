@@ -7,7 +7,7 @@ interface MailOptions {
     htmlBody: string;
 }
 
-export class EmailServide {
+export class EmailService {
     private transporter = nodemailer.createTransport({
         service: envs.MAILER_SERVICE,
         auth: {
