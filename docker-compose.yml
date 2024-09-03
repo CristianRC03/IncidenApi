@@ -1,13 +1,21 @@
 version: '3.8'
 
 services:
-    #incident-api:
-    #    build: .
-    #    container_name: incident-api
-    #    ports:
-    #        - "3000:3000"
-    #    depends_on:
-    #        - mongo
+    incident-api:
+        image: crisromero/711-incident-api:latest
+        container_name: incident-api
+        environment:
+            PORT: ${PORT}
+            MONGO_URI: ${MONGO_URL}
+            MONGO_DB: ${MONGO_DB}
+            MAILER_USER_TOKEN: ${MAILER_USER_TOKEN}
+            MAILER_SERVICE: ${MAILER_SERVICE}
+            MAILER_EMAIL: ${MAILER_EMAIL}
+            MAPBOC_ACCESS_TOKEN: ${MAPBOC_ACCESS_TOKEN}
+        ports:
+            - "3000:3000"
+        depends_on:
+            - mongo
 
     mongo:
         image: mongo
