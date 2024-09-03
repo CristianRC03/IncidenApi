@@ -18,5 +18,10 @@ jobs:
       - name: Build Docker image
         run: docker build -t crisromero/711-incident-api:${{ github.sha }} .
 
+      - name: Tag Latest
+        run: docker tag crisromero/711-incident-api:${{ github.sha }} crisromero/711-incident-api:latest
+
       - name: Push Docker image
-        run: docker push crisromero/711-incident-api:${{ github.sha }}
+        run: 
+          docker push crisromero/711-incident-api:${{ github.sha }}
+          docker push crisromero/711-incident-api:latest
